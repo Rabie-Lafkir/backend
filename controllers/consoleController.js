@@ -60,11 +60,7 @@ export const createConsole = async (req, res) => {
 // PUT update console
 export const updateConsole = async (req, res) => {
     try {
-        const updated = await GameConsole.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            { new: true }
-        );
+        const updated = await GameConsole.findByIdAndUpdate(req.params.id,req.body, { new: true });
         res.json(updated);
     } catch (err) {
         res.status(400).json({ message: 'Update failed', error: err.message });
